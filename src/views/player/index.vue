@@ -30,16 +30,17 @@
             plain
             size="small"
           >查询</el-button>
-          <el-button
+          <!-- <el-button
             style="backgroundColor: #656FE7;color:#fff;border-radius:8px;"
             icon="el-icon-delete"
             @click="onReset('serviceForm')"
             plain
             size="small"
-          >重置</el-button>
+          >重置</el-button> -->
         </el-form-item>
       </el-form>
     </div>
+     <Add @close1="addvisiable=false" @success1="handleAddSuccess" :addVisiable="addvisiable"></Add>
     <!-- 开启新对话弹框 -->
     <!-- <el-dialog title="开启新对话" :visible.sync="dialogVisible" width="28%" :before-close="handleClose">
       <div class="line"></div>
@@ -251,10 +252,11 @@
 //   getMessageDetailList, //查询消息详情列表
 //   addMessageDetail //新增消息详情
 // } from "@/api/serviceOnline";
+import Add from './add.vue'
 export default {
   data() {
     return {
-      dialogVisible: false, //开启新对话弹框
+      addVisiable: false, //开启新对话弹框
       detailVisible: false, //详情信息弹框
       pageSize: 10, //每页显示数量
       pageNum: 1, //页数
@@ -328,6 +330,9 @@ export default {
       },
     };
   },
+  components:{
+    Add,
+  },
   created() {
     this.initList();
   },
@@ -388,6 +393,7 @@ export default {
     //查看详情
     handleDetail(row) {
       console.log(row);
+      this.addVisiable=true
     },
     //提前结束
     handleGover(row) {
