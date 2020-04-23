@@ -1,8 +1,8 @@
 <template>
   <el-dialog
     class="player-detail"
-    title="菜单编辑"
-    :visible.sync="editVisiable"
+    title="新增菜单"
+    :visible.sync="addVisiable"
     @close1="onClose"
     :before-close="handleClose"
     width="61.8%"
@@ -31,9 +31,9 @@
 </template>
 <script>
 export default {
-  name: "typeEdit",
+  name: "typeAdd",
   props: {
-    editVisiable: {
+    addVisiable: {
       default: false
     },
     type: {

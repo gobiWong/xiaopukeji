@@ -28,12 +28,12 @@
             plain
             size="small"
           >重置</el-button>-->
-          <!-- <el-button
+          <el-button
             style="backgroundColor: #F67F77;color:#fff;border-radius:8px;"
             icon="el-icon-circle-plus-outline"
             size="small"
-            @click="addvisiable=true"
-          >添加标的</el-button>-->
+            @click="addVisiable=true"
+          >新增菜单</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -61,15 +61,18 @@
       </el-table>
     </div>
     <!-- 菜单弹框 -->
-    <edit-menu :addVisiable="addVisiable" @close1="addVisiable=false" @success1="handleAddSuccess"></edit-menu>
+    <edit-menu :editVisiable="editVisiable" @close="editVisiable=false" @success="handleEditSuccess"></edit-menu>
+    <add-menu :addVisiable="addVisiable" @close="addVisiable=false" @success="handleAddSuccess"></add-menu>
   </div>
 </template>
 <script>
 import editMenu from "./editMenu.vue";
+import addMenu from "./addMenu.vue";
 export default {
   data() {
     return {
       addVisiable: false,
+      editVisiable: false,
       dataList: [
         {
           data1: "陈1",
@@ -108,16 +111,25 @@ export default {
     };
   },
   components: {
+    addMenu,
     editMenu
   },
   created() {},
 
   methods: {
     handleDetail() {
-      this.addVisiable = true;
+      this.editVisiable = true;
     },
     handleAddSuccess() {
       this.addVisiable = false;
+      this.$message({
+        message: "新增菜单成功",
+        type: "success"
+      });
+      // this.initList();
+    },
+    handleEditSuccess(){
+      this.editVisiable = false;
       this.$message({
         message: "修改菜单成功",
         type: "success"
