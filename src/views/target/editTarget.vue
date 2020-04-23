@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="新增标的" :visible.sync="addVisiable" @close1="onClose" :before-close="handleClose">
+  <el-dialog title="标的设置" :visible.sync="editVisible" @close="onClose" :before-close="handleClose" width="61.8%">
     <el-form
       ref="form"
       :model="form"
@@ -49,9 +49,9 @@
 </template>
 <script>
 export default {
-  name: "typeAdd",
+  name: "typeEdit",
   props: {
-    addVisiable: {
+    editVisible: {
       default: false
     },
     type: {
@@ -77,15 +77,15 @@ export default {
   methods: {
     //点击叉叉按钮关闭，触发一'close1'方法名
     handleClose() {
-      this.$emit("close1");
+      this.$emit("close");
     },
     //点击取消关闭子组件点取消按钮，触发一'close1'方法名
     onClose() {
-      this.$emit("close1");
+      this.$emit("close");
     },
     goNewTalk() {
       //点击确定处理业务逻辑之后触发一个'success1'方法名
-      this.$emit("success1");
+      this.$emit("success");
     }
   }
 };

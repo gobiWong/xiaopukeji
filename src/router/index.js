@@ -59,13 +59,13 @@ export const constantRouterMap = [
   //   ]
   // },
   {
-    path: '/test',
+    path: '/target',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'Test',
-        component: () => import('@/views/test/index'),
+        name: 'Target',
+        component: () => import('@/views/target/index'),
         meta: { title: '标的列表', icon: 'link' }
       }
     ]

@@ -44,7 +44,7 @@
             @click="onReset('serviceForm')"
             plain
             size="small"
-          >重置</el-button> -->
+          >重置</el-button>-->
           <el-button
             style="backgroundColor: #F67F77;color:#fff;border-radius:8px;"
             icon="el-icon-circle-plus-outline"
@@ -54,151 +54,6 @@
         </el-form-item>
       </el-form>
     </div>
-    <!-- 开启新对话弹框 -->
-    <!-- <el-dialog title="开启新对话" :visible.sync="dialogVisible" width="28%" :before-close="handleClose">
-      <div class="line"></div>
-      <div class="new_talk">
-        <div class="talk_content">请注明与此新对话相关的参考号码（计划号码，介绍人代码，帐户号码 [预付卡] ，或贷款号码）</div>
-      </div>
-      <p>案件号码</p>
-      <el-input
-        prefix-icon="el-icon-search"
-        size="small"
-        placeholder
-        v-model="caseNum"
-        class="input-with-select"
-      ></el-input>
-
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false" size="small">取 消</el-button>
-        <el-button type="primary" @click="goNewTalk" size="small">继 续</el-button>
-      </span>
-    </el-dialog>-->
-    <Add @close1="addvisiable=false" @success1="handleAddSuccess" :addVisiable="addvisiable"></Add>
-
-    <!-- 详细信息 -->
-    <!-- <el-dialog
-      title="详细信息"
-      top="5vh"
-      :visible.sync="detailVisible"
-      width="80%"
-      :before-close="handleClose"
-    >
-      <el-card class="box-card" shadow="never">
-        <el-row class="user_info">
-          <el-col :span="8">
-            <div class="grid-content bg-purple">
-              <h3>参考#</h3>
-              <p>565810</p>
-              <h3>独一编号</h3>
-              <p>2108960</p>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="grid-content bg-purple-light">
-              <h3>全名</h3>
-              <p>565810</p>
-              <h3>档案文件类型</h3>
-              <p>2108960</p>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="grid-content bg-purple">
-              <h3>介绍人</h3>
-              <p>565810</p>
-              <h3>最后更新</h3>
-              <p>2019-07-14 23:35:48</p>
-            </div>
-          </el-col>
-        </el-row>
-      </el-card>
-      <el-card class="box-card" shadow="never">
-        <el-row class="user_info">
-          <el-col :span="24">
-            <div class="grid-content bg-purple">
-              <h3>验证报告：</h3>
-              <ul class="report_list">
-                <li>ASDCJJJYEUCB.PDF</li>
-                <li>ADFRGIDFHEWFHIO(VER 20-190).PGF</li>
-                <li>HHFHEWOFJDYFEJIIJISJAKCJAS(VER1.23).PDF</li>
-              </ul>
-            </div>
-          </el-col>
-        </el-row>
-      </el-card>
-      <el-card class="box-card" shadow="never">
-        <el-row class="third_info">
-          <el-col :span="8">
-            <div class="third_left">
-              <p>
-                <i>讯息#:</i>
-                <span>1407860</span>
-              </p>
-              <p>
-                <i>提交人:</i>
-                <span>System（ITA）</span>
-              </p>
-              <p>
-                <i>日期:</i>
-                <span>2019-07-14 23:26:16</span>
-              </p>
-            </div>
-          </el-col>
-          <el-col :span="16">
-            <div class="third_right">
-              <p>此协议/申请书将继续等待核准，直到我们收齐及审核所有文件</p>
-              <p>若已提交所有的文件，我们将会立即审核此协议/申请书。必要时，我们将会发布一个新信息以要求任何缺少，不完整或额外（若需要）丶以及需要更正的资讯或文件。</p>
-            </div>
-          </el-col>
-        </el-row>
-      </el-card>
-      <el-card class="box-card forth" shadow="never">
-        <el-row class="third_info">
-          <el-col :span="8">
-            <div class="third_left">
-              <p>
-                <i>讯息#:</i>
-                <span>1407860</span>
-              </p>
-              <p>
-                <i>提交人:</i>
-                <span>System（ITA）</span>
-              </p>
-              <p>
-                <i>日期:</i>
-                <span>2019-07-14 23:26:16</span>
-              </p>
-              <p>
-                <i>附件:</i>
-              </p>
-              <ul class="report_list">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4...</li>
-              </ul>
-            </div>
-          </el-col>
-          <el-col :span="16">
-            <div class="forth_right">
-              <p>您好：</p>
-              <p>收到顾问的报聘协议书。</p>
-              <p>经审核，烦请顾问568810查看上方文件分享区验证报告"SDF-dd.pdf"</p>
-              <p>-若顾问确认与验证报告里提及的人士为同一人，请于此线上服务互动平台通知我们。</p>
-              <p>-若顾问确认本人并非与验证报告"SDF-dd.pdf"里所提及的人士为同一人,请提交以下文件:</p>
-              <p>(i)请完成并提交II204身份证明声明书.</p>
-              <p>(ii)请在验证报告"SDF-dd.pdf"的每一页空白处简签,证明顾问已查阅相关文件。</p>
-              <p>谢谢您。</p>
-            </div>
-          </el-col>
-        </el-row>
-      </el-card>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="detailVisible = false" size="small">取 消</el-button>
-        <el-button type="primary" @click="detailVisible = false" size="small">确 定</el-button>
-      </span>
-    </el-dialog>-->
-
     <!-- 数据表格 -->
     <div class="mm_table">
       <el-table
@@ -208,9 +63,8 @@
         :cell-style="tableCell"
         @sort-change="handleSort"
       >
-        <el-table-column prop="data1" label="主播昵称">
-        </el-table-column>
-        <el-table-column prop="data2" label="募资期数" ></el-table-column>
+        <el-table-column prop="data1" label="主播昵称"></el-table-column>
+        <el-table-column prop="data2" label="募资期数"></el-table-column>
         <el-table-column prop="data3" label="募资时间"></el-table-column>
         <el-table-column prop="data4" label="推广时间"></el-table-column>
         <el-table-column prop="data5" label="目标募资金额" width="120"></el-table-column>
@@ -227,23 +81,23 @@
             >{{scope.row.state|capitalize}}</el-tag>
           </template>
         </el-table-column>-->
-        <el-table-column prop="data11" label="操作" align="center" width="180" class-name="small-padding fixed-width">
+        <el-table-column
+          prop="data11"
+          label="操作"
+          align="center"
+          width="180"
+          class-name="small-padding fixed-width"
+        >
           <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="handleDetail(scope.row)">详情</el-button>
-          <!-- <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">
+            <el-button type="primary" size="mini" @click="handleDetail(scope.row)">详情</el-button>
+            <!-- <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">
             {{ $t('table.publish') }}
           </el-button>
           <el-button v-if="scope.row.status!='draft'" size="mini" @click="handleModifyStatus(scope.row,'draft')">
             {{ $t('table.draft') }}
-          </el-button> -->
-          <el-button  size="mini" type="danger" @click="handleGover(scope.row)">
-          提前结束
-          </el-button>
-        </template>
-
-
-
-
+            </el-button>-->
+            <el-button size="mini" type="danger" @click="handleGover(scope.row)">提前结束</el-button>
+          </template>
         </el-table-column>
       </el-table>
       <!-- 分页工具 -->
@@ -259,6 +113,12 @@
         ></el-pagination>
       </div>-->
     </div>
+    <add-target @close="addvisiable=false" @success="handleAddSuccess" :addVisiable="addvisiable"></add-target>
+    <edit-target
+      :editVisible="editvisible"
+      @close="editvisible=false"
+      @success="handleEditSuccess"
+    ></edit-target>
   </div>
 </template>
 <script>
@@ -268,12 +128,14 @@
 //   getMessageDetailList, //查询消息详情列表
 //   addMessageDetail //新增消息详情
 // } from "@/api/serviceOnline";
-import Add from './add.vue'
+import addTarget from "./addTarget.vue";
+import editTarget from "./editTarget.vue";
+
 export default {
   data() {
     return {
       addvisiable: false, //开启新对话弹框
-      detailVisible: false, //详情信息弹框
+      editvisible: false, //详情信息弹框
       pageSize: 10, //每页显示数量
       pageNum: 1, //页数
       total: 0, //总条数
@@ -351,8 +213,9 @@ export default {
       }
     };
   },
-  components:{
-    Add
+  components: {
+    addTarget,
+    editTarget
   },
   created() {
     this.initList();
@@ -365,12 +228,20 @@ export default {
   },
 
   methods: {
-     handleAddSuccess() {
+    handleAddSuccess() {
       this.addvisiable = false;
       this.$message({
-          message: '新增标的成功',
-          type: 'success'
-        });
+        message: "新增标的成功",
+        type: "success"
+      });
+      this.initList();
+    },
+    handleEditSuccess(){
+       this.editvisible = false;
+      this.$message({
+        message: "标的设置成功",
+        type: "success"
+      });
       this.initList();
     },
     //表头搜索提交按钮
@@ -420,12 +291,13 @@ export default {
       this.initList();
     },
     //查看详情
-    handleDetail(row){
-      console.log(row)
+    handleDetail(row) {
+      // console.log(row);
+      this.editvisible = true;
     },
     //提前结束
-    handleGover(row){
-       console.log(row)
+    handleGover(row) {
+      console.log(row);
     },
     //获取详情弹框
     messageDetail(row) {
