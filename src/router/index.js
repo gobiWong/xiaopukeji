@@ -94,63 +94,59 @@ export const constantRouterMap = [
       }
     ]
   },
-  // {
-  //   path: '/nested',
-  //   component: Layout,
-  //   redirect: '/nested/menu1',
-  //   name: 'Nested',
-  //   meta: {
-  //     title: '嵌套',
-  //     icon: 'nested'
-  //   },
-  //   children: [
-  //     {
-  //       path: 'menu1',
-  //       component: () => import('@/views/nested/menu1/index'), // Parent router-view
-  //       name: 'Menu1',
-  //       meta: { title: '菜单1' },
-  //       children: [
-  //         {
-  //           path: 'menu1-1',
-  //           component: () => import('@/views/nested/menu1/menu1-1'),
-  //           name: 'Menu1-1',
-  //           meta: { title: '菜单1-1' }
-  //         },
-  //         {
-  //           path: 'menu1-2',
-  //           component: () => import('@/views/nested/menu1/menu1-2'),
-  //           name: 'Menu1-2',
-  //           meta: { title: '菜单1-2' },
-  //           children: [
-  //             {
-  //               path: 'menu1-2-1',
-  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-  //               name: 'Menu1-2-1',
-  //               meta: { title: '菜单1-2-1' }
-  //             },
-  //             {
-  //               path: 'menu1-2-2',
-  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-  //               name: 'Menu1-2-2',
-  //               meta: { title: '菜单1-2-2' }
-  //             }
-  //           ]
-  //         },
-  //         {
-  //           path: 'menu1-3',
-  //           component: () => import('@/views/nested/menu1/menu1-3'),
-  //           name: 'Menu1-3',
-  //           meta: { title: '菜单1-3' }
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       path: 'menu2',
-  //       component: () => import('@/views/nested/menu2/index'),
-  //       meta: { title: '菜单2' }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/system',
+    component: Layout,
+    redirect: '/system/menu',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '系统设置',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'menu',
+        component: () => import('@/views/menu/index'),
+        name: 'Menu',
+        meta: {
+          title: '菜单管理',
+          icon: 'tree',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'permission',
+        component: () => import('@/views/permission/index'),
+        name: 'Permission',
+        meta: {
+          title: '权限管理',
+          icon: 'form'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/role/index'),
+        name: 'Role',
+        meta: {
+          title: '角色管理',
+          icon: 'example',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'customer',
+        component: () => import('@/views/customer/index'),
+        name: 'Customer',
+        meta: {
+          title: '商户管理',
+          icon: 'tree',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
   {
     path: '/partners',
     component: Layout,
