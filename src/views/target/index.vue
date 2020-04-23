@@ -10,24 +10,23 @@
         size="small"
       >
         <el-form-item prop="region" label="昵称">
-          <el-select v-model="formInline.region" placeholder="全部">
-            <el-option label="全部" value="1"></el-option>
-            <el-option label="开启防撸" value="2"></el-option>
-            <el-option label="正常尽量" value="3"></el-option>
-          </el-select>
+          <el-input v-model="formInline.nickName" placeholder="请输入"></el-input>
         </el-form-item>
         <el-form-item prop="region" label="状态">
-          <el-select v-model="formInline.region" placeholder="全部">
+          <el-select v-model="formInline.status" placeholder="全部">
             <el-option label="全部" value="1"></el-option>
-            <el-option label="开启防撸" value="2"></el-option>
-            <el-option label="正常尽量" value="3"></el-option>
+            <el-option label="募集中" value="2"></el-option>
+            <el-option label="已完成" value="3"></el-option>
+            <el-option label="未满标" value="4"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item prop="region" label="期数">
-          <el-select v-model="formInline.region" placeholder="全部">
-            <el-option label="全部" value="1"></el-option>
-            <el-option label="开启防撸" value="2"></el-option>
-            <el-option label="正常尽量" value="3"></el-option>
+          <el-select v-model="formInline.date" placeholder="全部">
+            <el-option label="全部" value="0"></el-option>
+            <el-option label="第一期" value="1"></el-option>
+            <el-option label="第二期" value="2"></el-option>
+            <el-option label="第三期" value="3"></el-option>
+            <el-option label="第四期" value="4"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -114,11 +113,7 @@
       </div>-->
     </div>
     <add-target @close="addvisiable=false" @success="handleAddSuccess" :addVisiable="addvisiable"></add-target>
-    <edit-target
-      :editVisible="editvisible"
-      @close="editvisible=false"
-      @success="handleEditSuccess"
-    ></edit-target>
+    <edit-target :editVisible="editvisible" @close="editvisible=false" @success="handleEditSuccess"></edit-target>
   </div>
 </template>
 <script>
@@ -139,10 +134,6 @@ export default {
       pageSize: 10, //每页显示数量
       pageNum: 1, //页数
       total: 0, //总条数
-      orderName: "msgId",
-      orderType: "DESC",
-      caseNum: "", //案件号码弹框
-      detailList: "", //单个详情列表
       dataList: [
         {
           data1: "陈1",
@@ -208,8 +199,9 @@ export default {
       },
       //搜索选框测试数据
       formInline: {
-        user: "",
-        region: ""
+        nickName: "",
+        status: "",
+        date: ""
       }
     };
   },
@@ -236,8 +228,8 @@ export default {
       });
       this.initList();
     },
-    handleEditSuccess(){
-       this.editvisible = false;
+    handleEditSuccess() {
+      this.editvisible = false;
       this.$message({
         message: "标的设置成功",
         type: "success"
@@ -245,7 +237,9 @@ export default {
       this.initList();
     },
     //表头搜索提交按钮
-    onSubmit(formName) {},
+    onSubmit(formName) {
+      console.log(this.formInline);
+    },
     //表头搜索重置按钮
     onReset(formName) {
       this.$refs[formName].resetFields();
@@ -333,79 +327,4 @@ export default {
 };
 </script>
 <style lang="scss" scope>
-// .service_online {
-//   .mm_button {
-//     box-sizing: border-box;
-//     padding-bottom: 10px;
-//     border-bottom: 1px solid #dcdfe6;
-//     text-align: left;
-//   }
-//   .line {
-//     width: 100%;
-//     height: 1px;
-//     margin-bottom: 15px;
-//     background-color: #ccc;
-//   }
-//   .new_talk {
-//     border-left: 3px solid rgb(94, 194, 161);
-//     width: 100%;
-//     height: 55px;
-//     line-height: 25px;
-//     background: #cbdce0;
-//     color: cornflowerblue;
-//     margin-bottom: 10px;
-//     .talk_content {
-//       margin-left: 10px;
-//     }
-//   }
-//   .input-with-select {
-//     margin-top: 10px;
-//   }
-//   .mm_table {
-//     margin-top: 10px;
-//   }
-//   .box-card {
-//     background-color: #eee;
-//     margin-bottom: 10px;
-//   }
-//   .report_list {
-//     text-indent: 0.5em;
-//     line-height: 20px;
-//   }
-//   .forth {
-//     height: 260px;
-//     .forth_right {
-//       height: 200px;
-//       line-height: 20px;
-//       background-color: #fff;
-//       margin: 10px 5px 0 0;
-//     }
-//   }
-//   .user_info {
-//     h3 {
-//       font-weight: 600;
-//       line-height: 20px;
-//     }
-//     p {
-//       line-height: 20px;
-//     }
-//   }
-//   .third_info {
-//     .third_left {
-//       p > i {
-//         font-weight: 600;
-//         line-height: 20px;
-//       }
-//     }
-//     .third_right {
-//       margin-top: 6px;
-//       margin-right: 5px;
-//       background-color: #fff;
-//       line-height: 20px;
-//     }
-//   }
-//   .forth_right {
-//     height: 200px;
-//   }
-// }
 </style>

@@ -39,18 +39,18 @@
       <el-table stripe :data="dataList2" :header-cell-style="tableHead" :cell-style="tableCell">
         <el-table-column prop="data1" label="周统计"></el-table-column>
         <el-table-column prop="data2" label="统计周期"></el-table-column>
-        <el-table-column prop="data1" label="斗鱼"></el-table-column>
-        <el-table-column prop="data2" label="抖音"></el-table-column>
-        <el-table-column prop="data1" label="总收益"></el-table-column>
+        <el-table-column prop="data3" label="斗鱼"></el-table-column>
+        <el-table-column prop="data4" label="抖音"></el-table-column>
+        <el-table-column prop="data5" label="总收益"></el-table-column>
       </el-table>
     </div>
     <div class="mm_table" v-show="this.activeIndex==3?true:false">
       <el-table stripe :data="dataList3" :header-cell-style="tableHead" :cell-style="tableCell">
         <el-table-column prop="data1" label="月统计"></el-table-column>
         <el-table-column prop="data2" label="统计周期"></el-table-column>
-        <el-table-column prop="data1" label="斗鱼"></el-table-column>
-        <el-table-column prop="data2" label="抖音"></el-table-column>
-        <el-table-column prop="data1" label="总收益"></el-table-column>
+        <el-table-column prop="data3" label="斗鱼"></el-table-column>
+        <el-table-column prop="data4" label="抖音"></el-table-column>
+        <el-table-column prop="data5" label="总收益"></el-table-column>
       </el-table>
     </div>
     <div class="footer-btn">
@@ -123,46 +123,60 @@ export default {
         {
           data1: "第四周",
           data2: "大哥1",
-          data3: "2019-05-07 15:22:12"
+          data3: "2019-05-07 15:22:12",
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         },
         {
           data1: "第三周",
           data2: "大哥2",
-          data3: "2019-05-07 15:22:12"
+          data3: "2019-05-07 15:22:12",
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         },
         {
           data1: "第二周",
           data2: "大哥3",
-          data3: "2019-05-07 15:22:12"
+          data3: "2019-05-07 15:22:12",
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         },
         {
           data1: "第一周",
           data2: "大哥4",
           data3: "2019-05-07 15:22:12",
-          data4: "4533"
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         }
       ],
       dataList3: [
         {
           data1: "第一个月",
           data2: "大哥1",
-          data3: "2019-05-07 15:22:12"
+          data3: "2019-05-07 15:22:12",
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         },
         {
           data1: "第二个月",
           data2: "大哥2",
-          data3: "2019-05-07 15:22:12"
+          data3: "2019-05-07 15:22:12",
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         },
         {
           data1: "第三个月",
           data2: "大哥3",
-          data3: "2019-05-07 15:22:12"
+          data3: "2019-05-07 15:22:12",
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         },
         {
           data1: "第四个月",
           data2: "大哥4",
           data3: "2019-05-07 15:22:12",
-          data4: "4533"
+          data4: "大哥1",
+          data5: "2019-05-07 15:22:12"
         }
       ],
       tableHead: {
