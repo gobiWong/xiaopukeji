@@ -59,11 +59,15 @@ export const constantRouterMap = [
   //   ]
   // },
   {
-    path: '/target',
+    path: '/targetList',
+    redirect: '/targetList/target',
+    alwaysShow: true, // will always show the root menu
+    name: 'TargetList',
+    meta: { title: '标的管理', icon: 'form' },
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: 'target',
         name: 'Target',
         component: () => import('@/views/target/index'),
         meta: { title: '标的列表', icon: 'link' }
@@ -71,11 +75,15 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/player',
+    path: '/playerList',
     component: Layout,
+    redirect: '/playerList/player',
+    alwaysShow: true, // will always show the root menu
+    name: 'PlayerList',
+    meta: { title: '主播管理', icon: 'example' },
     children: [
       {
-        path: 'index',
+        path: 'player',
         name: 'Player',
         component: () => import('@/views/player/index'),
         meta: { title: '主播列表', icon: 'table' }
@@ -83,21 +91,53 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/earnings',
+    path: '/earningsList',
     component: Layout,
+    redirect: '/earningsList/earnings',
+    alwaysShow: true, // will always show the root menu
+    name: 'EarningsList',
+    meta: {
+      title: '收益管理',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
     children: [
       {
-        path: 'index',
+        path: 'earnings',
         name: 'Earnings',
         component: () => import('@/views/earnings/index'),
         meta: { title: '收益列表', icon: 'link' }
       }
     ]
   },
+  // {
+  //   path: '/system',
+  //   component: Layout,
+  //   redirect: '/system/menu',
+  //   alwaysShow: true, // will always show the root menu
+  //   meta: {
+  //     title: '系统设置',
+  //     icon: 'example',
+  //     roles: ['admin', 'editor'] // you can set roles in root nav
+  //   },
+  //   children: [
+  //     {
+  //       path: 'menu',
+  //       component: () => import('@/views/menu/index'),
+  //       name: 'Menu',
+  //       meta: {
+  //         title: '菜单管理',
+  //         icon: 'tree',
+  //         roles: ['admin'] // or you can only set roles in sub nav
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '/system',
     component: Layout,
     redirect: '/system/menu',
+    name: 'System',
     alwaysShow: true, // will always show the root menu
     meta: {
       title: '系统设置',
