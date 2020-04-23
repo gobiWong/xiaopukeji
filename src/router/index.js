@@ -80,7 +80,7 @@ export const constantRouterMap = [
     redirect: '/playerList/player',
     alwaysShow: true, // will always show the root menu
     name: 'PlayerList',
-    meta: { title: '主播管理', icon: 'example' },
+    meta: { title: '主播管理', icon: 'user' },
     children: [
       {
         path: 'player',
@@ -141,7 +141,7 @@ export const constantRouterMap = [
     alwaysShow: true, // will always show the root menu
     meta: {
       title: '系统设置',
-      icon: 'example',
+      icon: 'tab',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
     children: [
@@ -195,7 +195,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'Partners',
         component: () => import('@/views/partners/index'),
-        meta: { title: '合作伙伴', icon: 'tree' }
+        meta: { title: '合作伙伴', icon: 'peoples' }
       }
     ]
   },

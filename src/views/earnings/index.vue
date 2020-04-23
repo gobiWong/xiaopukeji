@@ -48,13 +48,13 @@
             @click="onReset('serviceForm')"
             plain
             size="small"
-          >重置</el-button> -->
+          >重置</el-button>-->
         </el-form-item>
       </el-form>
     </div>
     <!-- 数据表格 -->
     <div class="mm_table">
-      <el-table
+       <el-table
         stripe
         :data="dataList"
         :header-cell-style="tableHead"
@@ -63,12 +63,12 @@
       >
         <el-table-column prop="data1" label="主播艺名"></el-table-column>
         <el-table-column prop="data2" label="分成占比"></el-table-column>
-        <el-table-column prop="data3" label="昨日收益" width="160"></el-table-column>
+        <el-table-column prop="data3" label="昨日收益" ></el-table-column>
         <el-table-column prop="data4" label="上周收益"></el-table-column>
         <el-table-column prop="data5" label="总收益"></el-table-column>
-        <el-table-column prop="data6" label="投资人昨日收益"></el-table-column>
-        <el-table-column prop="data7" label="投资人上周收益"></el-table-column>
-        <el-table-column prop="data7" label="投资人上月收益"></el-table-column>
+        <el-table-column prop="data6" label="投资人昨日收益" width="160"></el-table-column>
+        <el-table-column prop="data7" label="投资人上周收益" width="160"></el-table-column>
+        <el-table-column prop="data7" label="投资人上月收益" width="160"></el-table-column>
         <el-table-column prop="data8" label="投资人总收益" width="160"></el-table-column>
         <el-table-column
           prop="data9"
@@ -99,12 +99,6 @@
   </div>
 </template>
 <script>
-// import {
-//   getMessageList, //查询消息列表
-//   addMessage, //新增消息
-//   getMessageDetailList, //查询消息详情列表
-//   addMessageDetail //新增消息详情
-// } from "@/api/serviceOnline";
 import detailEarnings from "./detailEarnings.vue";
 export default {
   data() {
@@ -114,10 +108,6 @@ export default {
       pageSize: 10, //每页显示数量
       pageNum: 1, //页数
       total: 0, //总条数
-      orderName: "msgId",
-      orderType: "DESC",
-      caseNum: "", //案件号码弹框
-      detailList: "", //单个详情列表
       dataList: [
         {
           data1: "陈1",
@@ -164,15 +154,16 @@ export default {
           data9: "3"
         }
       ],
+      tableCell: {
+        "text-align": "center",
+        height: "20px"
+      },
       tableHead: {
         "background-color": "#DCDFE6",
         height: "30px",
         "text-align": "center"
       },
-      tableCell: {
-        "text-align": "center",
-        height: "20px"
-      },
+
       //搜索选框测试数据
       listQuery: {
         page: 1,

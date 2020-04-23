@@ -10,10 +10,22 @@
         size="small"
       >
         <el-form-item prop="region" label="主播艺名">
-         <el-input v-model="listQuery.data1" placeholder="全部" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          <el-input
+            v-model="listQuery.data1"
+            placeholder="全部"
+            style="width: 200px;"
+            class="filter-item"
+            @keyup.enter.native="handleFilter"
+          />
         </el-form-item>
         <el-form-item prop="region" label="投资人">
-          <el-input v-model="listQuery.data2" placeholder="全部" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          <el-input
+            v-model="listQuery.data2"
+            placeholder="全部"
+            style="width: 200px;"
+            class="filter-item"
+            @keyup.enter.native="handleFilter"
+          />
         </el-form-item>
         <el-form-item prop="region" label="展示状态">
           <el-select v-model="listQuery.data3" placeholder="全部">
@@ -36,11 +48,15 @@
             @click="onReset('serviceForm')"
             plain
             size="small"
-          >重置</el-button> -->
+          >重置</el-button>-->
         </el-form-item>
       </el-form>
     </div>
-     <player-detail @close1="addvisiable=false" @success1="handleAddSuccess" :addVisiable="addvisiable"></player-detail>
+    <player-detail
+      @close1="addvisiable=false"
+      @success1="handleAddSuccess"
+      :addVisiable="addvisiable"
+    ></player-detail>
 
     <!-- 数据表格 -->
     <div class="mm_table">
@@ -57,16 +73,7 @@
         <el-table-column prop="data4" label="直播收益"></el-table-column>
         <el-table-column prop="data5" label="投资人收益"></el-table-column>
         <el-table-column prop="data6" label="入驻时长"></el-table-column>
-        <el-table-column prop="data7" label="展示状态">
-             <!-- <el-table-column label="状态">
-          <template slot-scope="scope">
-            <el-tag
-              plain
-              :type="scope.row.state==0 ? '': scope.row.state== 1?'success' : 'warning'"
-            >{{scope.row.state|capitalize}}</el-tag>
-          </template>
-        </el-table-column>-->
-        </el-table-column>
+        <el-table-column prop="data7" label="展示状态"></el-table-column>
         <el-table-column prop="data8" label="最新修改时间" width="160"></el-table-column>
         <el-table-column
           prop="data9"
@@ -87,12 +94,11 @@
           </template>
         </el-table-column>
       </el-table>
-
     </div>
   </div>
 </template>
 <script>
-import playerDetail from './playerDetail.vue'
+import playerDetail from "./playerDetail.vue";
 export default {
   data() {
     return {
@@ -137,7 +143,7 @@ export default {
           data6: "60天",
           data7: "新入驻",
           data8: "2019-05-07 15:22:12",
-          data9: "3",
+          data9: "3"
         },
         {
           data1: "陈四",
@@ -167,11 +173,11 @@ export default {
         data1: undefined,
         data2: undefined,
         data3: undefined
-      },
+      }
     };
   },
-  components:{
-    playerDetail,
+  components: {
+    playerDetail
   },
   created() {
     this.initList();
@@ -184,12 +190,12 @@ export default {
   },
 
   methods: {
-     handleAddSuccess() {
+    handleAddSuccess() {
       this.addvisiable = false;
       this.$message({
-          message: '新增标的成功',
-          type: 'success'
-        });
+        message: "新增标的成功",
+        type: "success"
+      });
       this.initList();
     },
     //表头搜索提交按钮
@@ -198,7 +204,6 @@ export default {
     onReset(formName) {
       this.$refs[formName].resetFields();
     },
-  
 
     // 初始化表格数据
     initList() {
@@ -231,14 +236,14 @@ export default {
     //查看详情
     handleDetail(row) {
       // console.log(row);
-      this.addvisiable=true
+      this.addvisiable = true;
     },
     //提前结束
     handleGover(row) {
       console.log(row);
     },
-    handleFilter(){
-      console.log('搜索')
+    handleFilter() {
+      console.log("搜索");
     },
     //获取详情弹框
     messageDetail(row) {
