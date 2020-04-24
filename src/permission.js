@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // progress bar
@@ -40,4 +41,11 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
   NProgress.done() // 结束Progress
+})
+
+Vue.directive('permission', {
+  inserted(el, binding) {
+    console.log(el)
+    console.log(binding)
+  }
 })

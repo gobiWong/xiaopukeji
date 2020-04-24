@@ -1,12 +1,14 @@
 import { login, logout, getInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import { userInfo1 } from '@/api/userInfo1.js'
 
 const user = {
   state: {
     token: getToken(),
     name: '',
     avatar: '',
-    roles: []
+    roles: [],
+    rights: JSON.parse(sessionStorage.getItem('rights') || '[]')
   },
 
   mutations: {
@@ -21,18 +23,24 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_RIGHTS: (state, rights) => {
+      state.rights = rights
+      sessionStorage.setItem('rights', JSON.stringify(rights))
     }
   },
 
   actions: {
-    // 登录
+    // 登录成功之后只是拿到一个token 'admin-token',把token存入vuex
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
+          console.log(data)
           setToken(data.token)
           commit('SET_TOKEN', data.token)
+          commit('SET_RIGHTS', userInfo1.rights)
           resolve()
         }).catch(error => {
           reject(error)
@@ -45,6 +53,7 @@ const user = {
       return new Promise((resolve, reject) => {
         getInfo(state.token).then(response => {
           const data = response.data
+          console.log(data)
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
           } else {

@@ -247,7 +247,12 @@ export const constantRouterMap = [
 
   { path: '*', redirect: '/404', hidden: true }
 ]
-
+// export function initDynamicRoutes() {
+//   console.log(this.$router)
+//   const currentRoutes = this.$router.options.routes
+//   console.log('111', currentRoutes)
+//   // 根据rights二级权限字段，对路由规则进行动态添加
+// }
 export default new Router({
   // mode: 'history', //后端支持可开
   scrollBehavior: () => ({ y: 0 }),

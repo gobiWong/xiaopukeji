@@ -9,31 +9,38 @@
       :collapse-transition="false"
       mode="vertical"
     >
-      <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"/>
+      <sidebar-item
+        v-for="route in routes"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
+      />
     </el-menu>
   </el-scrollbar>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import variables from '@/styles/variables.scss'
-import SidebarItem from './SidebarItem'
+import { mapGetters } from "vuex";
+import variables from "@/styles/variables.scss";
+import SidebarItem from "./SidebarItem";
 
 export default {
   components: { SidebarItem },
   computed: {
-    ...mapGetters([
-      'sidebar'
-    ]),
+    ...mapGetters(["sidebar"]),
     routes() {
-      return this.$router.options.routes
+      return this.$router.options.routes;
     },
     variables() {
-      return variables
+      return variables;
     },
     isCollapse() {
-      return !this.sidebar.opened
+      return !this.sidebar.opened;
     }
+  },
+  mounted() {
+    console.log("SideBar", this.$router);
+    console.log("SideBar", this.$router.options.routes);
   }
-}
+};
 </script>
