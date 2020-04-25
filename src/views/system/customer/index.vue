@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button>商户管理</el-button>
-    <el-button @click="btn">获取用户信息</el-button>
+    <!-- <el-button @click="btn">获取用户信息</el-button> -->
     <!-- <h3>{{userInfo}}</h3> -->
   </div>
 </template>

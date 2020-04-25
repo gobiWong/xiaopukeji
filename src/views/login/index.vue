@@ -116,8 +116,6 @@ export default {
             .then(() => {
               this.loading = false;
               this.$router.push({ path: this.redirect || "/" });
-              //根据用户具备的权限，动态添加路由规则
-              // initDynamicRoutes();
             })
             .catch(() => {
               this.loading = false;
