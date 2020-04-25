@@ -10,7 +10,7 @@
       mode="vertical"
     >
       <sidebar-item
-        v-for="route in routes"
+        v-for="route in permission_routes"
         :key="route.path"
         :item="route"
         :base-path="route.path"
@@ -27,10 +27,10 @@ import SidebarItem from "./SidebarItem";
 export default {
   components: { SidebarItem },
   computed: {
-    ...mapGetters(["sidebar"]),
-    routes() {
-      return this.$router.options.routes;
-    },
+    ...mapGetters(["sidebar","permission_routes"]),
+    // routes() {
+    //   return this.$router.options.routes;
+    // },
     variables() {
       return variables;
     },

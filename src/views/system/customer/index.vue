@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import { getList } from "../../api/table.js";
-import { userInfo1 } from "../../api/userInfo1.js";
+import { getList } from "@/api/table.js";
+import { userInfo1 } from "@/api/userInfo1.js";
 export default {
   data() {
     return {
