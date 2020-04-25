@@ -43,6 +43,21 @@ export const constantRoutes = [
       }
     ]
   },
+<<<<<<< HEAD
+=======
+  {
+    path: '/partners',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Partners',
+        component: () => import('@/views/partners/index'),
+        meta: { title: '合作伙伴', icon: 'peoples' }
+      }
+    ]
+  },
+>>>>>>> master
   // 参考文档
   {
     path: '/documentation',
